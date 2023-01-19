@@ -1,24 +1,8 @@
 package net.trustly.paywithmybanksdkdemoandroid
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.paywithmybank.android.sdk.views.PayWithMyBankView
+object EstablishData {
 
-class MainActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val establishDataValues = getEstablishDataValues().toMutableMap()
-
-        val payWithMyBankWidget = findViewById<PayWithMyBankView>(R.id.payWithMyBankWidget)
-        payWithMyBankWidget.selectBankWidget(establishDataValues).onBankSelected { _, data ->
-            establishDataValues["paymentProviderId"] = data["paymentProviderId"].toString()
-        }
-    }
-
-    private fun getEstablishDataValues(): Map<String, String> {
+    fun getEstablishDataValues(): Map<String, String> {
         val establishDataValues: MutableMap<String, String> = HashMap()
         establishDataValues["accessId"] = "A48B73F694C4C8EE6306"
         establishDataValues["requestSignature"] = "clYlSWb565B3JGUExdXrK5tyTqM="

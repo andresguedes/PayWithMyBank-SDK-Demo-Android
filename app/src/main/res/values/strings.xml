@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">PayWithMyBankSDKDemoAndroid</string>
-    <string name="pay">Pay</string>
+    <string name="connect_my_bank">Connect my bank</string>
 </resources>

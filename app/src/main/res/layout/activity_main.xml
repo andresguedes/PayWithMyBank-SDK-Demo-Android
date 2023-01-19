@@ -9,16 +9,16 @@
         android:id="@+id/payWithMyBankWidget"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/btnPay"
+        app:layout_constraintBottom_toBottomOf="@id/btnConnectMyBank"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPay"
+        android:id="@+id/btnConnectMyBank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pay"
+        android:text="@string/connect_my_bank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
