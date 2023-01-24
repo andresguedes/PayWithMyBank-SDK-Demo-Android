@@ -31,14 +31,11 @@ class LightBoxActivity : AppCompatActivity() {
 
     private fun redirectToScreen(callback: Callback) {
         val intent = Intent(this, ResultActivity::class.java)
-        when (callback) {
-            Callback.RETURN -> {
-                intent.putExtra(ResultActivity.RESULT, ResultActivity.Result.RETURN)
-            }
-            Callback.CANCEL -> {
-                intent.putExtra(ResultActivity.RESULT, ResultActivity.Result.CANCEL)
-            }
+        val result = when (callback) {
+            Callback.RETURN -> { ResultActivity.Result.RETURN }
+            Callback.CANCEL -> { ResultActivity.Result.CANCEL }
         }
+        intent.putExtra(ResultActivity.RESULT, result)
         startActivity(intent)
         finish()
     }

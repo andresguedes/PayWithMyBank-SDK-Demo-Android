@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val establishDataValues = EstablishData.getEstablishDataValues().toMutableMap()
         val payWithMyBankWidget = findViewById<PayWithMyBankView>(R.id.payWithMyBankWidget)
         payWithMyBankWidget.selectBankWidget(establishDataValues).onBankSelected { _, data ->
-            establishDataValues["paymentProviderId"] = data["paymentProviderId"].toString()
+            establishDataValues[PAYMENT_PROVIDER_ID] = data[PAYMENT_PROVIDER_ID].toString()
         }
 
         val connectWithMyBankButton = findViewById<AppCompatButton>(R.id.btnConnectMyBank)
@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(LightBoxActivity.ESTABLISH_DATA, establishDataValues as Serializable)
             startActivity(intent)
         }
+    }
+
+    companion object {
+        private const val PAYMENT_PROVIDER_ID = "paymentProviderId"
     }
 
 }
