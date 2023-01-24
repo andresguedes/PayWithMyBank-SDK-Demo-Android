@@ -1,7 +1,7 @@
 package net.trustly.paywithmybanksdkdemoandroid.ui
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.paywithmybank.android.sdk.interfaces.PayWithMyBank
 import com.paywithmybank.android.sdk.interfaces.PayWithMyBankCallback
@@ -30,14 +30,17 @@ class LightBoxActivity : AppCompatActivity() {
     }
 
     private fun redirectToScreen(callback: Callback) {
+        val intent = Intent(this, ResultActivity::class.java)
         when (callback) {
             Callback.RETURN -> {
-                Toast.makeText(this, "Return callback", Toast.LENGTH_SHORT).show()
+                intent.putExtra(ResultActivity.RESULT, ResultActivity.Result.RETURN)
             }
             Callback.CANCEL -> {
-                Toast.makeText(this, "Cancel callback", Toast.LENGTH_SHORT).show()
+                intent.putExtra(ResultActivity.RESULT, ResultActivity.Result.CANCEL)
             }
         }
+        startActivity(intent)
+        finish()
     }
 
     private enum class Callback {
@@ -45,9 +48,6 @@ class LightBoxActivity : AppCompatActivity() {
     }
 
     companion object {
-
         const val ESTABLISH_DATA = "establishData"
-
     }
-
 }

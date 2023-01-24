@@ -37,6 +37,9 @@
                 <data android:scheme="sdkdemo" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.ResultActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
