@@ -21,7 +21,6 @@ object EstablishData {
         establishDataValues["customer.phone"] = "2145553434"
         establishDataValues["customer.email"] = "jsmith@email.com"
         establishDataValues["metadata.urlScheme"] = "sdkdemo://"
-        establishDataValues["metadata.integrationContext"] = "InAppBrowser"
         establishDataValues["env"] = "sandbox"
         return establishDataValues
     }

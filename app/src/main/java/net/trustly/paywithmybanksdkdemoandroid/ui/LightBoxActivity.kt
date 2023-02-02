@@ -10,13 +10,15 @@ import net.trustly.paywithmybanksdkdemoandroid.R
 
 class LightBoxActivity : AppCompatActivity() {
 
+    private lateinit var lightBoxWidget: PayWithMyBankView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_light_box)
 
         val establishDataValues = intent.getSerializableExtra(ESTABLISH_DATA) as Map<String, String>
 
-        val lightBoxWidget = findViewById<PayWithMyBankView>(R.id.lightBoxWidget)
+        lightBoxWidget = findViewById(R.id.lightBoxWidget)
         lightBoxWidget.establish(establishDataValues)
             .onReturn(
                 (PayWithMyBankCallback { _: PayWithMyBank, _: Map<String, String> ->
@@ -27,6 +29,12 @@ class LightBoxActivity : AppCompatActivity() {
                     redirectToScreen(Callback.CANCEL)
                 })
             )
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        lightBoxWidget.proceedToChooseAccount()
     }
 
     private fun redirectToScreen(callback: Callback) {
